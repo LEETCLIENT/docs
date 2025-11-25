@@ -1,5 +1,9 @@
 # enum Category
 
+```ts
+declare enum Category{COMBAT, MOVEMENT, PLAYER, RENDER, OTHER, }
+```
+
 Категория модуля.
 
 - COMBAT
@@ -7,7 +11,3 @@
 - PLAYER
 - RENDER
 - OTHER
-
-```ts
-declare enum Category{COMBAT, MOVEMENT, PLAYER, RENDER, OTHER, }
-```

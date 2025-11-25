@@ -9,6 +9,9 @@ export default defineConfig({
   description: "Leet Client - документация",
   head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   themeConfig: {
+    editLink: {
+      pattern: 'https://github.com/LEETCLIENT/site/edit/main/docs/:path'
+    },
     nav: [
       { text: 'Главная', link: '/' },
       { text: 'Script API', link: '/scripts' },
