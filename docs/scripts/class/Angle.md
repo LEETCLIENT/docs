@@ -21,5 +21,5 @@ declare class Angle {
 Ставит значение yaw на указанное
 ## pitch(pitch: number)
 Ставит значение pitch на указанное
-## toVector(): [Vec3](../Vec3)
+## toVector(): [Vec3](./Vec3)
 Создаёт вектор перемещения из объекта Angle
