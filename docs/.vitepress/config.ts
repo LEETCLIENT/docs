@@ -8,6 +8,7 @@ export default defineConfig({
   title: "Leet Solutions",
   description: "Leet Client - документация",
   head: [['link', { rel: 'icon', href: '/favicon.png' }]],
+  base: '/docs/',
   themeConfig: {
     editLink: {
       pattern: 'https://github.com/LEETCLIENT/site/edit/main/docs/:path'
