@@ -16,16 +16,15 @@ export default defineConfig({
     nav: [
       { text: 'Главная', link: '/' },
       { text: 'Script API', link: '/scripts' },
-      { text: 'Модули', link: 'modules' }
+      { text: 'Модули', link: '/modules' },
     ],
 
     sidebar: [
       {
         text: 'Script API',
-        base: '/scripts',
         items: [
-          { text: 'Гайд', link: '/' },
-          { text: 'register', link: '/function/register' },
+          { text: 'Гайд', link: '/scripts' },
+          { text: 'register', link: '/scripts/function/register' },
           {
             text: 'Ивенты (Events)', base: '/scripts/events', items: [
               ...fs.readdirSync(`${base}/scripts/events`).filter(it => it !== "index.md").map(it => {
@@ -49,7 +48,8 @@ export default defineConfig({
                 return { text: name, link: `/${name}` }
               })
             ]
-          }
+          },
+          { text: 'API Minecraft', link: 'https://maven.fabricmc.net/docs/yarn-1.21.8+build.1/index.html' },
         ],
       },
       {

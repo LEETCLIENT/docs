@@ -13,6 +13,7 @@ declare interface ClientProvider {
     settings(...settings: Setting): void
     traceEntity(vec: Angle, distance: number, entity: Entity, walls: boolean): boolean
 }
+declare const Client: ClientProvider;
 ```
 
 ## getModules(): [Module]\[\]
