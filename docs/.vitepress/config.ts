@@ -17,6 +17,7 @@ export default defineConfig({
       { text: 'Главная', link: '/' },
       { text: 'Script API', link: '/scripts' },
       { text: 'Модули', link: '/modules' },
+      { text: 'Остальное', link: '/other' }
     ],
 
     sidebar: [
@@ -67,6 +68,7 @@ export default defineConfig({
         text: 'Остальное',
         base: '/other',
         items: [
+          { text: 'Замена ассетов через ресурспаки', link: '/assets' }
         ]
       }
     ],
