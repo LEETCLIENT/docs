@@ -1,0 +1,18 @@
+# network
+Библиотека позволяет отправлять пакеты или получать определенные данные сервера
+
+## send_packet(packet)
+Отправляет пакет на сервер
+## check_server(ip)
+Проверяет, находится ли игрок на сервере с указанным айпи или нет
+```lua
+network.check_server("example-server") -- если айпи mc.example-server.net
+```
+## in_pvp()
+Проверяет, находится ли игрок в режиме пвп
+## ft_anarchy()
+Возвращает текущую анархию
+## c2s(name)
+Возвращает класс клиентского пакета по названию [Packets](https://maven.fabricmc.net/docs/yarn-1.21.8+build.1/net/minecraft/network/packet/PlayPackets.html)
+## s2c(name)
+Возвращает класс серверного пакета по названию [Packets](https://maven.fabricmc.net/docs/yarn-1.21.8+build.1/net/minecraft/network/packet/PlayPackets.html)

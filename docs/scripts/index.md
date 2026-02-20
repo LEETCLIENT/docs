@@ -7,77 +7,64 @@
 - своих режимов ротации или резольверов
 - дополнений к функционалу клиента
 
-## Подготовка
+<!-- ## Подготовка
 
-Берём вот [отсюда](https://github.com/LEETCLIENT/scripts-template) файлы `leet.d.ts` и `jsconfig.json`, и копируем их в `C:\LEET\scripts`.
-
-Запускаем [Visual Studio Code](https://code.visualstudio.com) или любой другой понравившийся редактор кода в папке со скриптами.
+Запускаем [Visual Studio Code](https://code.visualstudio.com) или любой другой понравившийся редактор кода в папке со скриптами. -->
 
 ## Ваш первый скрипт
 
-Создаём в папке скриптов файл, назовите как хотите, тут будем использовать `hello.js`.
+Создаём в папке скриптов файл, назовите как хотите, тут будем использовать `example.lua`.
 
 Как первый скрипт создадим модуль, который каждую секунду будет писать `Hello, world!` каждую секунду в чат, как своеобразный Hello world мира скриптов.
 
-```js
-register({
-  name: 'Hello',
-  category: Category.PLAYER,
-  description: 'Говорим привет',
-  authors: ['ваш ник'],
-})
+```lua
+module.set("Hello", COMBAT)
 ```
 
-Используем функцию [register()](./function/register) чтобы зарегистрировать скрипт как модуль, который назовём `Hello`.
+Используем функцию [set()](./function/set) чтобы зарегистрировать скрипт как модуль, который назовём `Hello`.
 
-Модуль появится в категории `Player`. Список доступных категорий можно найти здесь: [Category](./class/Category).
+Модуль появится в категории `Combat`. Список доступных категорий можно найти здесь: [Category](./class/Category).
 
 ### Ивенты
 
-Ивент система Leet Client работает так:
-- Каждый ивент даётся каждому включенному модулю,
-- И уже сами модули фильтруют нужный тип ивента
+Ивент система максимально проста:
+Один ивент - один callback
 
 Например:
-```js
-event => {
-  if (event instanceof GameTick) {
-    // onTick handler
-  } else if (event instanceof Render2D) {
-    // render hud
-  }
-  // ...
-}
+```lua
+events.set_callback(event_tick, function()
+  -- обработка тика
+end)
+events.set_callback(event_2d, function()
+  -- обработка рендера 2д (худ)
+end)
 ```
 
+Для нашей задачи можно использовать 2 способа:
+- [Timer](./provider/timer.md) - вычисление времени при помощи нашего API
+- [Internal](./provider/internal.md) - получение тиков игрока через саму игру
+Мы будем использовать Timer так как он проще для нашей задачи.
+
 Добавим event handler:
-```js
-Events.set(event => {
-  if (event instanceof GameTick) {
-    // Мы хотим чтобы сообщение писалось каждую секунду
-    // Поскольку 1 секунда = 20 тиков (в идеальной обстановке)
-    // Значит мы проверяем чтобы "возраст" (age, в тиках) игрока был кратен 20 тикам
-    if (mc.player.age % 20 == 0) {
-      Client.send('Hello, world!')
-    }
-  }
-})
+```lua
+local mytimer = timer.create()
+events.set_callback(event_tick, function()
+    if mytimer.reached(1000) then -- считаем 1 секунду (1000 мс)
+        client.chat('Hello, world!')
+        mytimer.reset() -- не забываем сбросить таймер
+    end
+end)
 ```
 
 ### Результат
-```js
-register({
-  name: 'Hello',
-  category: Category.PLAYER,
-  description: 'Говорим привет',
-  authors: ['ваш ник'],
-})
+```lua
+module.set("Hello", COMBAT)
 
-Events.set(event => {
-  if (event instanceof GameTick) {
-    if (mc.player.age % 20 == 0) {
-      Client.send('Hello, world!')
-    }
-  }
-})
+local mytimer = timer.create()
+events.set_callback(event_tick, function()
+    if mytimer.reached(1000) then -- считаем 1 секунду (1000 мс)
+        client.chat('Hello, world!')
+        mytimer.reset() -- не забываем сбросить таймер
+    end
+end)
 ```

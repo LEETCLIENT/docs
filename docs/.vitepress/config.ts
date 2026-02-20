@@ -24,10 +24,10 @@ export default defineConfig({
       {
         text: 'Script API',
         items: [
-          { text: 'Гайд', link: '/scripts' },
-          { text: 'register', link: '/scripts/function/register' },
+          { text: 'Быстрый старт', link: '/scripts' },
+          { text: 'set', link: '/scripts/function/set' },
           {
-            text: 'Ивенты (Events)', base: '/scripts/events', items: [
+            text: 'Ивенты', base: '/scripts/events', items: [
               ...fs.readdirSync(`${base}/scripts/events`).filter(it => it !== "index.md").map(it => {
                 const name = it.replace(".md", "")
                 return { text: name, link: `/${name}` }
@@ -35,7 +35,7 @@ export default defineConfig({
             ]
           },
           {
-            text: 'Классы', base: '/scripts/class', items: [
+            text: 'Объекты', base: '/scripts/class', items: [
               ...fs.readdirSync(`${base}/scripts/class`).map(it => {
                 const name = it.replace(".md", "")
                 return { text: name, link: `/${name}` }
@@ -43,8 +43,16 @@ export default defineConfig({
             ]
           },
           {
-            text: 'Провайдеры (глобали)', base: '/scripts/provider', items: [
+            text: 'Библиотеки', base: '/scripts/provider', items: [
               ...fs.readdirSync(`${base}/scripts/provider`).map(it => {
+                const name = it.replace(".md", "")
+                return { text: name, link: `/${name}` }
+              })
+            ]
+          },
+          {
+            text: 'Примеры скриптов', base: '/scripts/examples', items: [
+              ...fs.readdirSync(`${base}/scripts/examples`).map(it => {
                 const name = it.replace(".md", "")
                 return { text: name, link: `/${name}` }
               })
