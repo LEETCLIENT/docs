@@ -1,4 +1,4 @@
 # timer
 
-## create(): [Timer](/scripts/class/Timer)
+## create(): [Timer](../class/timer)
 Создаёт объект таймера.

@@ -1,0 +1,7 @@
+# category
+
+- COMBAT
+- INTERFACE
+- WORLD
+- MOVEMENT
+- PLAYER
