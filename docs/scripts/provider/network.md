@@ -13,6 +13,6 @@ network.check_server("example-server") -- если айпи mc.example-server.ne
 ## ft_anarchy()
 Возвращает текущую анархию
 ## c2s(name)
-Возвращает класс клиентского пакета по названию [Packets](https://maven.fabricmc.net/docs/yarn-1.21.8+build.1/net/minecraft/network/packet/PlayPackets.html)
+Возвращает класс клиентского пакета по названию [Packets](../packets.md)
 ## s2c(name)
-Возвращает класс серверного пакета по названию [Packets](https://maven.fabricmc.net/docs/yarn-1.21.8+build.1/net/minecraft/network/packet/PlayPackets.html)
+Возвращает класс серверного пакета по названию [Packets](../packets.md)
