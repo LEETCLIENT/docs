@@ -1,4 +1,4 @@
-## internal классы [ТУТ](https|//maven.fabricmc.net/docs/yarn-1.21.8+build.1/net/minecraft/network/packet/PlayPackets.html)
+## internal классы [ТУТ](https://maven.fabricmc.net/docs/yarn-1.21.8+build.1/net/minecraft/network/packet/PlayPackets.html)
 # Пакеты S2C
 | Имя пакета                  | internal класс                           |
 |-----------------------------|------------------------------------------|
