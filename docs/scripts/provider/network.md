@@ -16,3 +16,7 @@ network.check_server("example-server") -- если айпи mc.example-server.ne
 Возвращает класс клиентского пакета по названию [Packets](../packets.md)
 ## s2c(name)
 Возвращает класс серверного пакета по названию [Packets](../packets.md)
+## get(url, headers, callback)
+Отправляет запрос на указанный url с заголовками (пример использования [Проверка лицензии](../examples/Проверка%20лицензии.md))
+## post(url, data, headers, callback)
+Отправляет запрос на указанный url с заголовками и данными
